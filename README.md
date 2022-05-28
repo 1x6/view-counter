@@ -1,2 +1,2 @@
 # view-counter
-simple view counter for anilist.
+simple page view counter for anilist.
