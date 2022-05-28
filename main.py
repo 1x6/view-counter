@@ -10,7 +10,7 @@ mycol = mydb["counter"]
 
 @app.route('/')
 def index():
-    return redirect("https://github.com/1x6/view-counter, 302)
+    return redirect("https://github.com/1x6/view-counter", 302)
 
 @app.route("/counter.png", methods=["GET"])
 def view():
