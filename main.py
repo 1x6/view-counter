@@ -3,8 +3,10 @@ from flask import Flask, send_file, redirect
 from PIL import Image, ImageFont, ImageDraw 
 import pymongo
 
+db = os.getenv("db")
+
 app = Flask(__name__)
-myclient = pymongo.MongoClient("mongo_db_link")
+myclient = pymongo.MongoClient(db)
 mydb = myclient["counter"]
 mycol = mydb["counter"]
 
@@ -36,7 +38,7 @@ def view():
     
     image_editable = ImageDraw.Draw(my_image)
     w, h = image_editable.textsize(title_text, font=title_font)
-    image_editable.text(((W-w)/2,(H-h)/2), title_text, (0,0,0), font=title_font, )
+    image_editable.text(((W-w)/2,(H-h)/2), title_text, (255, 255, 255), font=title_font, )
     
     my_image.save("result.png")
 
